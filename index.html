@@ -1,0 +1,164 @@
+!DOCTYPE html>
+<html>
+<head>
+<title>Chocolate Store</title>
+<style>
+body {
+font-family: Arial, sans-serif;
+background: #f2ede9;
+}
+
+/* Header */
+header {
+background: #333;
+color: #fff;
+padding: 20px;
+}
+
+header h1 {
+margin: 0;
+}
+
+/* Navigation */
+nav {
+background: #cd853f;
+}
+
+nav ul {
+list-style-type: none;
+margin: 0;
+padding: 0;
+overflow: hidden;
+}
+
+nav li {
+float: left;
+}
+
+nav li a {
+color: #fff;
+text-decoration: none;
+padding: 14px 16px;
+display: block;
+}
+
+nav li a:hover {
+background-color: #ddd;
+color: #333;
+}
+
+/* Showcase */
+#showcase {
+min-height: 400px;
+background: url('chocolates.jpg') no-repeat 0 -400px;
+text-align: center;
+color: #333;
+}
+
+#showcase h1 {
+margin-top: 100px;
+font-size: 55px;
+}
+
+/* Page Content */
+.page-content {
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+}
+
+/* Chocolate Item */
+.chocolate-item {
+flex: 0 1 29%;
+text-align: center;
+padding: 16px;
+margin: 8px;
+background: #fff;
+border: 1px solid #ddd;
+}
+
+/* Footer */
+footer {
+background: #333;
+color: #fff;
+text-align: center;
+padding: 8px;
+}
+</style>
+
+<script>
+var cart = [];
+var total = 0;
+
+function addToCart(name, price) {
+cart.push({
+name: name,
+price: price
+});
+
+updateTotal();
+}
+
+function updateTotal() {
+total = 0;
+for(var i=0; i<cart.length; i++) {
+total += cart[i].price;
+}
+
+document.getElementById("total").innerHTML = "Total: $" + total;
+}
+</script>
+
+</head>
+<body>
+
+<header>
+<h1>Chocolate Store</h1>
+</header>
+
+<nav>
+<ul>
+<li><a href="#">Home</a></li>
+<li><a href="#">Shop</a></li>
+<li><a href="#">Cart</a></li>
+<li><a href="#">Contact</a></li>
+</ul>
+</nav>
+
+<div id="showcase">
+<h1>Chocolates to Satisfy Your Sweet Tooth</h1>
+</div>
+
+<div class="page-content">
+
+<div class="chocolate-item">
+<img src="milk-chocolate.jpg">
+<h3>Milk Chocolate</h3>
+<p>$2.99/bar</p>
+<button onclick="addToCart('Milk Chocolate', 2.99)">Add to Cart</button>
+</div>
+
+<div class="chocolate-item">
+<img src="dark-chocolate.jpg">
+<h3>Dark Chocolate</h3>
+<p>$3.49/bar</p>
+<button onclick="addToCart('Dark Chocolate', 3.49)">Add to Cart</button>
+</div>
+
+<div class="chocolate-item">
+<img src="white-chocolate.jpg">
+<h3>White Chocolate</h3>
+<p>$2.50/bar</p>
+<button onclick="addToCart('White Chocolate', 2.50)">Add to Cart</button>
+</div>
+
+</div>
+
+<p id="total"></p>
+
+<footer>
+<p>&copy; 2023 Chocolate Store. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
